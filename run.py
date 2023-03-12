@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash
 
 
 app = Flask(__name__)
@@ -11,7 +11,10 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/about")
+@app.route("/about", methods=["GET", "POST"]) 
+    if request.method == "POST"
+    print(request.form.get("name"))
+    print(request.form.get["email"])
 def about():
     data = []
     with open("data/company.json", "r") as json_data:
